@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.imageio.ImageIO;
-
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginLogger;
 import cn.nukkit.utils.ConfigSection;
@@ -155,31 +153,6 @@ public class ResCheck {
 			if (!file.exists())
 				file.mkdirs();
 		}
-		file = new File(new File(kis.getDataFolder(), Activate.SkinDirName), "skin");
-		if (!file.exists())
-			file.mkdirs();
-		File file2 = new File(file, "geometry.json");
-		if (!file2.exists())
-			try {
-				Utils.writeFile(file2,
-						Utils.readFile(getClass().getResourceAsStream("/resources/Skin/skin/geometry.json")));
-			} catch (IOException e) {
-				e.printStackTrace();
-				log.error("§4Error initializing default configuration!");
-				kis.setEnabled(false);
-				return null;
-			}
-		file2 = new File(file, "skin.png");
-		if (!file2.exists())
-			try {
-				ImageIO.write(ImageIO.read(getClass().getResourceAsStream("/resources/Skin/skin/skin.png")), "PNG",
-						file2);
-			} catch (IOException e) {
-				e.printStackTrace();
-				log.error("§4Error initializing default configuration!");
-				kis.setEnabled(false);
-				return null;
-			}
 		ac.config = new Config(new File(kis.getDataFolder(), Activate.ConfigFileName), Config.YAML);
 		ac.message = new Message(ac);
 		ac.FormID.FormIDConfig = new Config(new File(kis.getDataFolder(), Activate.FormIDFileName), Config.YAML);

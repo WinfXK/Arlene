@@ -29,7 +29,8 @@ public class Activate {
 	public final static String[] FormIDs = { /* 0 */"主页", /* 1 */"备用主页", /* 2 */ "备用页" };
 	public final static String MessageFileName = "Message.yml", ConfigFileName = "Config.yml",
 			FormIDFileName = "FormID.yml", PlayerDataDirName = "Players", ItemListFileName = "ItemList.yml",
-			SkinDirName = "Skin";
+			GameSpaceDir = "GameSpace", TeleporterDirName = GameSpaceDir + "/Teleporter",
+			ChestDirName = GameSpaceDir + "/Chest", GameSpaceConfigName = "GameSpace.yml";
 	private MyEconomy economy;
 	private ItemList itemList;
 	private static Activate activate;
@@ -45,7 +46,7 @@ public class Activate {
 	 * 插件基础配置文件
 	 */
 	protected static final String[] defaultFile = { MessageFileName, ItemListFileName };
-	protected static final String[] Mkdir = { PlayerDataDirName, SkinDirName };
+	protected static final String[] Mkdir = { PlayerDataDirName, GameSpaceDir, TeleporterDirName, ChestDirName };
 
 	/**
 	 * 插件数据的集合类
@@ -64,6 +65,7 @@ public class Activate {
 			economy = new EconomyAPI(this);
 		ItemListConfig = new Config(new File(mis.getDataFolder(), ItemListFileName), Config.YAML);
 		itemList = new ItemList(this);
+		kis.getServer().getPluginManager().registerEvents(new PlayerEvent(this), kis);
 		kis.getLogger().info(message.getMessage("插件启动", "{loadTime}",
 				(float) Duration.between(mis.loadTime, Instant.now()).toMillis() + "ms") + "-Alpha");
 	}

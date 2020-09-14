@@ -25,6 +25,7 @@ public class MyConfig extends Config {
 		yaml = new Yaml(dumperOptions);
 	}
 
+	@Override
 	public File getFile() {
 		return file;
 	}
@@ -44,8 +45,8 @@ public class MyConfig extends Config {
 	}
 
 	@Override
-	public Map<String, Object> getAll() {
-		return map;
+	public MyMap<String, Object> getAll() {
+		return new MyMap<>(map);
 	}
 
 	public String getContent() {
