@@ -1,0 +1,17 @@
+name: Arlene
+main: cn.winfxk.arlene.Arlene
+api:
+- 1.0.0
+version: 1.0-alpha
+website: http://Winfxk.cn
+description: 傻逼小游戏
+author: Winfxk
+loadbefore:
+- EconomyAPI
+permissions:
+   Arlene.Command.main:
+      description: Arlene-Main
+      default: true
+   Arlene.Command.Admin:
+      description: Arlene-Admin
+      default: op
