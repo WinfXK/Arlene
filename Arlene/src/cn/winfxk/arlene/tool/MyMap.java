@@ -276,6 +276,30 @@ public class MyMap<K, V> extends LinkedHashMap<K, V> {
 		}
 	}
 
+	public MyMap<String, Object> getMap(K Key) {
+		return getMap(Key, null);
+	}
+
+	/**
+	 * 获取Map值
+	 * 
+	 * @param <E> Map值Key泛型
+	 * @param <A> Map值数据泛型
+	 * @param Key 要取值的Key
+	 * @param D   默认返回的内容
+	 * @return
+	 */
+	public <E, A> MyMap<E, A> getMap(K Key, MyMap<E, A> D) {
+		Object object = get(Key);
+		if (object != null && object instanceof Map)
+			try {
+				return object instanceof MyMap ? (MyMap<E, A>) object : new MyMap<>((Map<E, A>) object);
+			} catch (Exception e) {
+				return D;
+			}
+		return D;
+	}
+
 	/**
 	 * 读取值为List
 	 * 

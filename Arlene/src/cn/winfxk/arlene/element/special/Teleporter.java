@@ -1,15 +1,18 @@
-package cn.winfxk.arlene.game.data;
+package cn.winfxk.arlene.element.special;
 
 import cn.nukkit.level.Position;
 import cn.winfxk.arlene.tool.Config;
 
 /**
+ * 传送点数据类
+ * 
  * @Createdate 2020/09/15 00:28:23
  * @author Winfxk
  */
 public class Teleporter extends MyPosition {
 	private boolean Start;
-	private Position End;
+	private Position End = null;
+
 	public Teleporter(Config config) {
 		super(config);
 		Start = config.getBoolean("Start");

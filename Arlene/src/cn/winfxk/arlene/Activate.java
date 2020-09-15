@@ -24,13 +24,13 @@ import cn.winfxk.arlene.tool.Tool;
  */
 public class Activate {
 	public Arlene mis;
-	public Player setPlayer;
 	public ResCheck resCheck;
 	public final static String[] FormIDs = { /* 0 */"主页", /* 1 */"备用主页", /* 2 */ "备用页" };
 	public final static String MessageFileName = "Message.yml", ConfigFileName = "Config.yml",
 			FormIDFileName = "FormID.yml", PlayerDataDirName = "Players", ItemListFileName = "ItemList.yml",
 			GameSpaceDir = "GameSpace", TeleporterDirName = GameSpaceDir + "/Teleporter",
-			ChestDirName = GameSpaceDir + "/Chest", GameSpaceConfigName = "GameSpace.yml";
+			ChestDirName = GameSpaceDir + "/Chest", GameSpaceConfigName = "GameSpace.yml",
+			MineralDirName = GameSpaceDir + "/Mineral", NPCDirName = GameSpaceDir + "/Entity";
 	private MyEconomy economy;
 	private ItemList itemList;
 	private static Activate activate;
@@ -46,7 +46,8 @@ public class Activate {
 	 * 插件基础配置文件
 	 */
 	protected static final String[] defaultFile = { MessageFileName, ItemListFileName };
-	protected static final String[] Mkdir = { PlayerDataDirName, GameSpaceDir, TeleporterDirName, ChestDirName };
+	protected static final String[] Mkdir = { PlayerDataDirName, GameSpaceDir, TeleporterDirName, ChestDirName,
+			MineralDirName };
 
 	/**
 	 * 插件数据的集合类

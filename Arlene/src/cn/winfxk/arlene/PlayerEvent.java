@@ -1,10 +1,6 @@
 package cn.winfxk.arlene;
 
 import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.HashMap;
-import java.util.Map;
 
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
@@ -26,7 +22,6 @@ import cn.nukkit.form.response.FormResponseSimple;
 public class PlayerEvent implements Listener {
 	private Activate ac;
 	private Message msg;
-	private Map<Player, Instant> instant = new HashMap<>();
 
 	public PlayerEvent(Activate ac) {
 		msg = ac.getMessage();
@@ -92,15 +87,5 @@ public class PlayerEvent implements Listener {
 		if (!ac.isPlayers(player))
 			return;
 		ac.removePlayers(player);
-	}
-
-	/**
-	 * 判断是否间隔够高
-	 * 
-	 * @param player
-	 * @return
-	 */
-	private boolean isTime(Player player) {
-		return !instant.containsKey(player) || Duration.between(instant.get(player), Instant.now()).toMillis() > 500;
 	}
 }

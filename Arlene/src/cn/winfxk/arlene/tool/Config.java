@@ -192,6 +192,17 @@ public class Config extends cn.nukkit.utils.Config {
 		return true;
 	}
 
+	public MyMap<String, Object> getMap(String Key) {
+		return getMap(Key, null);
+	}
+
+	public MyMap<String, Object> getMap(String Key, MyMap<String, Object> D) {
+		Object object = get(Key);
+		if (object != null && object instanceof Map)
+			return object instanceof MyMap ? (MyMap<String, Object>) object : new MyMap<>((Map<String, Object>) object);
+		return D;
+	}
+
 	@Override
 	public boolean load(InputStream inputStream) {
 		if (inputStream == null)

@@ -1,9 +1,10 @@
-package cn.winfxk.arlene.game.data;
+package cn.winfxk.arlene.element;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.nukkit.level.Position;
+import cn.winfxk.arlene.element.special.Teleporter;
 import cn.winfxk.arlene.tool.Config;
 
 /**

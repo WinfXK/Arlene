@@ -1,4 +1,4 @@
-package cn.winfxk.arlene.game.data;
+package cn.winfxk.arlene.element;
 
 import cn.winfxk.arlene.ArleneException;
 
