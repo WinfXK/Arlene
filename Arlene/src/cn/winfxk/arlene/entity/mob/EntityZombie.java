@@ -1,16 +1,12 @@
-package cn.winfxk.arlene.entity;
+package cn.winfxk.arlene.entity.mob;
 
 import cn.nukkit.entity.EntitySmite;
-import cn.nukkit.level.format.FullChunk;
-import cn.nukkit.nbt.tag.CompoundTag;
+import cn.winfxk.arlene.entity.EntityData;
 
 /**
  * Created by Dr. Nick Doran on 4/23/2017.
- * 
- * @Createdate 2020/09/15 17:15:17
- * @alter Winfxk
  */
-public class EntityBoss extends EntityMob implements EntitySmite {
+public class EntityZombie extends EntityMob implements EntitySmite {
 
 	public static final int NETWORK_ID = 32;
 
@@ -19,15 +15,14 @@ public class EntityBoss extends EntityMob implements EntitySmite {
 		return NETWORK_ID;
 	}
 
-	public EntityBoss(FullChunk chunk, CompoundTag nbt) {
-		super(chunk, nbt);
+	public EntityZombie(EntityData data) {
+		super(data);
 	}
 
 	@Override
 	protected void initEntity() {
 		super.initEntity();
-		setScale(2);
-		this.setMaxHealth(500);
+		this.setMaxHealth(150);
 	}
 
 	@Override

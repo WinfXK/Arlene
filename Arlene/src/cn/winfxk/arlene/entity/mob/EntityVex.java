@@ -1,7 +1,6 @@
-package cn.winfxk.arlene.entity;
+package cn.winfxk.arlene.entity.mob;
 
-import cn.nukkit.level.format.FullChunk;
-import cn.nukkit.nbt.tag.CompoundTag;
+import cn.winfxk.arlene.entity.EntityData;
 
 /**
  * @Createdate 2020/09/15 17:00:43
@@ -12,8 +11,8 @@ public class EntityVex extends EntityMob {
 
 	public static final int NETWORK_ID = 105;
 
-	public EntityVex(FullChunk chunk, CompoundTag nbt) {
-		super(chunk, nbt);
+	public EntityVex(EntityData data) {
+		super(data);
 	}
 
 	@Override
@@ -24,7 +23,7 @@ public class EntityVex extends EntityMob {
 	@Override
 	protected void initEntity() {
 		super.initEntity();
-		this.setMaxHealth(10);
+		this.setMaxHealth(50);
 	}
 
 	@Override

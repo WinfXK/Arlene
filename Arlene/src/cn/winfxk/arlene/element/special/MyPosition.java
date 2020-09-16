@@ -2,6 +2,7 @@ package cn.winfxk.arlene.element.special;
 
 import cn.nukkit.Server;
 import cn.nukkit.level.Position;
+import cn.winfxk.arlene.Activate;
 import cn.winfxk.arlene.element.GameDateException;
 import cn.winfxk.arlene.element.particle.BaseParticle;
 import cn.winfxk.arlene.tool.Config;
@@ -13,13 +14,14 @@ import cn.winfxk.arlene.tool.MyMap;
  */
 public abstract class MyPosition extends Position {
 	protected String Key;
+	protected static Activate ac = Activate.getActivate();
 	protected static final Server server = Server.getInstance();
 	protected Config config;
 	protected boolean Particle;
 	protected String ParticleType;
 	protected BaseParticle ParticleTick;
 	protected MyMap<String, Object> map;
-	protected boolean Custom = false;
+	protected boolean Custom = true;
 
 	/**
 	 * 随机生成的数据点
@@ -45,7 +47,7 @@ public abstract class MyPosition extends Position {
 	public MyPosition(Config config) {
 		this(config.getAll());
 		this.config = config;
-		Custom = true;
+		Custom = false;
 	}
 
 	/**
@@ -91,6 +93,11 @@ public abstract class MyPosition extends Position {
 	 */
 	public Config getConfig() {
 		return config;
+	}
+
+	@Override
+	public MyPosition clone() {
+		return (MyPosition) super.clone();
 	}
 
 	/**

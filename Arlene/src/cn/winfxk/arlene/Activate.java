@@ -12,6 +12,7 @@ import cn.nukkit.command.CommandSender;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Utils;
+import cn.winfxk.arlene.game.GameDataManage;
 import cn.winfxk.arlene.money.EconomyAPI;
 import cn.winfxk.arlene.money.MyEconomy;
 import cn.winfxk.arlene.tool.Config;
@@ -29,8 +30,8 @@ public class Activate {
 	public final static String MessageFileName = "Message.yml", ConfigFileName = "Config.yml",
 			FormIDFileName = "FormID.yml", PlayerDataDirName = "Players", ItemListFileName = "ItemList.yml",
 			GameSpaceDir = "GameSpace", TeleporterDirName = GameSpaceDir + "/Teleporter",
-			ChestDirName = GameSpaceDir + "/Chest", GameSpaceConfigName = "GameSpace.yml",
-			MineralDirName = GameSpaceDir + "/Mineral", NPCDirName = GameSpaceDir + "/Entity";
+			ChestDirName = GameSpaceDir + "/Chest", MineralDirName = GameSpaceDir + "/Mineral",
+			NPCDirName = GameSpaceDir + "/Entity";
 	private MyEconomy economy;
 	private ItemList itemList;
 	private static Activate activate;
@@ -47,7 +48,8 @@ public class Activate {
 	 */
 	protected static final String[] defaultFile = { MessageFileName, ItemListFileName };
 	protected static final String[] Mkdir = { PlayerDataDirName, GameSpaceDir, TeleporterDirName, ChestDirName,
-			MineralDirName };
+			MineralDirName, NPCDirName };
+	protected GameDataManage gameDataManage;
 
 	/**
 	 * 插件数据的集合类
@@ -67,8 +69,18 @@ public class Activate {
 		ItemListConfig = new Config(new File(mis.getDataFolder(), ItemListFileName), Config.YAML);
 		itemList = new ItemList(this);
 		kis.getServer().getPluginManager().registerEvents(new PlayerEvent(this), kis);
+		gameDataManage = new GameDataManage(this);
 		kis.getLogger().info(message.getMessage("插件启动", "{loadTime}",
 				(float) Duration.between(mis.loadTime, Instant.now()).toMillis() + "ms") + "-Alpha");
+	}
+
+	/**
+	 * 返回游戏数据管理器
+	 * 
+	 * @return
+	 */
+	public GameDataManage getGameDataManage() {
+		return gameDataManage;
 	}
 
 	/**

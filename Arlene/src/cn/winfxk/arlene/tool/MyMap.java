@@ -261,6 +261,27 @@ public class MyMap<K, V> extends LinkedHashMap<K, V> {
 	}
 
 	/**
+	 * 读取Float值
+	 * 
+	 * @param Key
+	 * @param D
+	 * @return
+	 */
+	public float getFloat(K Key, float D) {
+		return Tool.objToFloat(Key, D);
+	}
+
+	/**
+	 * 读取Float值
+	 * 
+	 * @param Key
+	 * @return
+	 */
+	public float getFloat(K Key) {
+		return getFloat(Key, 0);
+	}
+
+	/**
 	 * 读取List值
 	 * 
 	 * @param <E> List泛型

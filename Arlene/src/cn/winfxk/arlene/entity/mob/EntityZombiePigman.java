@@ -1,8 +1,7 @@
-package cn.winfxk.arlene.entity;
+package cn.winfxk.arlene.entity.mob;
 
 import cn.nukkit.entity.EntitySmite;
-import cn.nukkit.level.format.FullChunk;
-import cn.nukkit.nbt.tag.CompoundTag;
+import cn.winfxk.arlene.entity.EntityData;
 
 /**
  * @Createdate 2020/09/15 17:00:43
@@ -18,8 +17,8 @@ public class EntityZombiePigman extends EntityMob implements EntitySmite {
 		return NETWORK_ID;
 	}
 
-	public EntityZombiePigman(FullChunk chunk, CompoundTag nbt) {
-		super(chunk, nbt);
+	public EntityZombiePigman(EntityData data) {
+		super(data);
 	}
 
 	@Override

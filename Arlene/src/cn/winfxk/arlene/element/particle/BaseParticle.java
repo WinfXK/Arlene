@@ -21,7 +21,7 @@ import cn.winfxk.arlene.tool.MyMap;
  */
 public abstract class BaseParticle extends Position {
 	public static final MyMap<String, BaseParticle> map = new MyMap<>();
-	{
+	static {
 		BaseParticle[] particles = { new HappyVillagerCircle(), new LavaDripCircle(), new WaterDripCircle(),
 				new LavaDripLevitate(), new LavaLevitate(), new RainSplashLevitate(), new SpellLevitate(),
 				new WaterDripLevitate(), new WaterLevitate() };
